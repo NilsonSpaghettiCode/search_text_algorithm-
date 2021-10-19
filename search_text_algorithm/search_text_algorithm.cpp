@@ -71,7 +71,7 @@ int main()
     test.search_pattern(txt, pattern_test);
     test.show_shift_positions();
     test.show_text_pattern();
-    
+    system("PAUSE");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
