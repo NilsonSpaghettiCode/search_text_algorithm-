@@ -1,0 +1,1 @@
+Este programa permite realizar una busqueda de textos mediante el algoritmo de boyer moore
