@@ -24,5 +24,13 @@ public:
 	std::string get_text_file(std::string file_path);
 	
 	std::vector<std::filesystem::path> get_list_files();
+
+	void setWorkSpace() 
+	{
+		this->create_directory_base();
+		std::cout << "Porfavor cargue sus archivos en ./source " << std::endl;
+		system("PAUSE");
+		this->load_list_files();
+	}
 };
 

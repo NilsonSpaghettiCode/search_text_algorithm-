@@ -42,35 +42,57 @@ int main()
 
     */
     IOSystemLocal file_control_local;
-    file_control_local.create_directory_base();
-    std::string option_c = "";
-    std::cout << "Una vez sus archivos esten en ./source " << std::endl;
-    system("PAUSE");
+    
+    /*
+    * Permite crear una carpeta para almacenar archivos locales
+    * 
+    */
+    file_control_local.setWorkSpace();
 
-    file_control_local.load_list_files();
+    
+    /*
+    * Obtiene algun archivo de la carpeta en source
+    */
     int option = file_control_local.select_file();
 
+    
+    /*
+    * Traduce la opcion al sistema de archivos y el path
+    */
     std::filesystem::path file_x = file_control_local.get_list_files().at((option - 1));
 
+    
+    
+    //Muestra el arhivo selecionado
     std::cout << "PATH String:" << file_x.filename() << std::endl;
 
+    //Cambia el tipo de arhivo
     std::string text_on_file = file_control_local.get_text_file(file_x.string());
+    
+    //Muestra el texto selecionado 
     std::cout << "TEXT: " << text_on_file << std::endl;
 
     std::string word_to_found = "";
 
+    //Obtiene la el patron a buscar
     std::cout << "Digite la palabra a buscar en el texto" << std::endl;
     std::cout << ">";
     std::cin >> word_to_found;
 
-    std::string txt = text_on_file;
-    std::string pattern_test = word_to_found;
-    StringSearch test;
 
-    test.generate_table_bad_chars(pattern_test);
-    test.search_pattern(txt, pattern_test);
-    test.show_shift_positions();
-    test.show_text_pattern();
+
+    std::string text = text_on_file;
+
+    std::string pattern = word_to_found;
+    
+    StringSearch string_search;
+
+
+    //Busca el patron en el texto
+    std::list<int> match_list = string_search.encontrarPatron(text,pattern);
+
+    string_search.mostrarCoindidencias(match_list, text, pattern);
+
     system("PAUSE");
 }
 

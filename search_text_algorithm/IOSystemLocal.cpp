@@ -3,6 +3,8 @@
 
 
 const std::string IOSystemLocal::directory = "source";
+
+
 void IOSystemLocal::printAlgo(std::string frase) 
 {
 }
